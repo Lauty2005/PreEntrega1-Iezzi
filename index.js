@@ -1,9 +1,12 @@
 const AYG = "A&G Travel";
 alert(AYG);
 
+function ingresarNombre (){
+    let name = prompt("Ingrese su nombre");
+    let surname = prompt("Ingrese su apellido");
+}
 
-let name = prompt("Ingrese su nombre").toLowerCase;
-let surname = prompt("Ingrese su apellido").toLowerCase;
+ingresarNombre();
 
 do {
     const DESTINOS = prompt("¿A donde desea viajar?; 1. Rio de Janeino, 2. Cancun o 3. New York");
