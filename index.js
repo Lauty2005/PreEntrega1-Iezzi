@@ -1,12 +1,10 @@
 const AYG = "A&G Travel";
 alert(AYG);
 
-function ingresarNombre (){
-    let name = prompt("Ingrese su nombre");
-    let surname = prompt("Ingrese su apellido");
-}
+let name = prompt("Ingrese su nombre");
+let surname = prompt("Ingrese su apellido");
 
-ingresarNombre();
+let economyBrasil = 350000;
 
 do {
     const DESTINOS = prompt("¿A donde desea viajar?; 1. Rio de Janeino, 2. Cancun o 3. New York");
@@ -19,11 +17,9 @@ do {
             if (BRASIL == "aerolineas argentinas") {
                 const PRECIO = prompt("¿Desea viajar en Economy o en Primera Clase?").toLowerCase();
                 if (PRECIO == "economy") {
-                    const ECONOMY = prompt("El valor del vuelo es de $350.000, ¿Desea comprarlo?(Responda SI o NO)").toLowerCase();
+                    const ECONOMY = prompt("El valor del vuelo es de $" + economyBrasil + ", ¿Desea comprarlo?(Responda SI o NO)").toLowerCase();
                     if (ECONOMY === "si") {
-                        const CANTIDAD = prompt("¿Cuantos vuelos desea comprar?");
-                        resultado = 350000 * CANTIDAD;
-                        alert("El total a abonar es " + resultado);
+                        calcular();
                     } else if (ECONOMY === "no") {
                         alert("¡Hasta pronto!");
                     }
@@ -175,10 +171,11 @@ do {
                 }
             }
             break;
-
-        default:
-            alert("Operacion no valida");
-            resultado = "Error";
+    }
+    function calcular (){
+        const CANTIDAD = prompt("¿Cuantos vuelos desea comprar?");
+        resultado = economyBrasil * CANTIDAD;
+        alert("El total a abonar es " + resultado);
     }
 
     continuar = prompt("¿Desea buscar otro vuelo?, SI o NO").toLowerCase();
