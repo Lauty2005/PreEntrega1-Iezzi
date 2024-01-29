@@ -12,7 +12,7 @@ do {
 
     switch (DESTINOS) {
         case "1":
-            const BRASIL = prompt("¿Con que aerolinea desea viajar?; Aerolineas Argentinas o Gol");
+            const BRASIL = prompt("¿Con que aerolinea desea viajar?; Aerolineas Argentinas o Gol").toUpperCase;
             if (BRASIL == "aerolineas argentinas") {
                 const PRECIO = prompt("¿Desea viajar en Economy o en Primera Clase?");
                 if (PRECIO == "economy") {
@@ -34,7 +34,7 @@ do {
                         alert("¡Hasta pronto!");
                     }
                 }
-            } else if (BRASIL == "gol") {
+            } else if (BRASIL == "GOL") {
                 const PRECIO = prompt("¿Desea viajar en Economy o en Primera Clase?");
                 if (PRECIO == "economy") {
                     const ECONOMY = prompt("El valor del vuelo es de $380.000, ¿Desea comprarlo?(Responda SI o NO");
