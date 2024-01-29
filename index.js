@@ -180,3 +180,5 @@ do {
 
     continuar = prompt("¿Desea buscar otro vuelo?, SI o NO").toLowerCase();
 } while (continuar === "si");
+
+alert("Espero que le haya servido");
