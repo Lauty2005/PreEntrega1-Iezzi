@@ -1,19 +1,10 @@
-:root {
-    --primary-color: #ffffff;
-    --secondary-color: #333333;
-    --third-color: #ff36ab;
-    --quarter-color: #e5e2e28b;
-    --fifth-color: #888686;
-}
-
 footer {
-    position: absolute;
+    position: static;
     bottom: 0;
     width: 100%;
     background-color: #060e2c;
     color: #fff;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -23,10 +14,17 @@ footer {
         flex-direction: column;
         align-items: center;
 
-        .social .bi {
-            font-size: 1.5rem;
-            margin: 0.5rem;
-            color: var(--fifth-color);
+        .social {
+            a {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .bi {
+                font-size: 1.5rem;
+                margin: 0.5rem;
+                color: var(--fifth-color);
+            }
 
             :hover {
                 color: var(--third-color);
@@ -38,7 +36,6 @@ footer {
         color: var(--primary-color);
         font-size: 1.2rem;
         font-weight: 700;
-        margin-top: 1rem;
     }
 
     .menus {
