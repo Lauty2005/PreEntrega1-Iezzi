@@ -1,8 +1,4 @@
-const AYG = "Impresiones 3D.LY";
-alert(AYG);
-
-let name = prompt("Ingrese su nombre");
-let surname = prompt("Ingrese su apellido");
+const IMP = "Impresiones 3D.LY";
 
 class Producto {
     constructor(id, nombre, description, imagen, tiempo, gramos) {
@@ -48,29 +44,4 @@ function calcularPrecioProducto(productoId) {
     const precioFinal = (precioMaterial + precioLuz + desgasteMaquina + margenError) * datos.ganancia;
 
     return precioFinal;
-}
-
-// Pedir al usuario que ingrese el ID del producto
-const productoId = prompt("Productos disponibles: 1. Soporte celular, 2. Posa vaso, 3. Cortantes. Ingrese el ID del producto: ");
-
-// Usar un switch para seleccionar el producto
-switch (productoId) {
-    case "1":
-        const precioProducto1 = calcularPrecioProducto(productoId);
-        alert(`El precio del producto Soporte celular es $${precioProducto1}`);
-        console.log(`El precio del producto Soporte celular es $${precioProducto1}`);
-        break;
-    case "2":
-        const precioProducto2 = calcularPrecioProducto(productoId);
-        alert(`El precio del producto Posa vaso es $${precioProducto2}`);
-        console.log(`El precio del producto Posa vaso es $${precioProducto2}`);
-        break;
-    case "3":
-        const precioProducto3 = calcularPrecioProducto(productoId);
-        alert(`El precio del producto Cortantes es $${precioProducto3}`);
-        console.log(`El precio del producto Cortantes es $${precioProducto3}`);
-        break;
-    default:
-        console.log("Producto no encontrado");
-        break;
 }
