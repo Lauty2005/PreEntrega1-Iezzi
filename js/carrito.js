@@ -81,7 +81,6 @@ function renderizarCarrito() {
     contenedorElementosCarrito.innerHTML = '';
     let precioTotal = 0;
     elementosCarrito.forEach(item => {
-        const producto = productos.find(p => p.id === item);
         const li = document.createElement('li');
         li.innerHTML = `
           <h3>${producto.nombre}</h3> 
@@ -103,7 +102,6 @@ function eliminarDelCarrito(idProducto) {
     if (indice !== -1) {
         elementosCarrito.splice(indice, 1);
         localStorage.setItem('carrito', JSON.stringify(elementosCarrito));
-        renderizarCarrito();
     }
 }
 
@@ -115,3 +113,5 @@ function realizarCompra() {
     elementosCarrito.length = 0;
     localStorage.setItem('carrito', JSON.stringify(elementosCarrito));
 }
+
+renderizarCarrito();
