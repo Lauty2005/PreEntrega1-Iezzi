@@ -73,6 +73,18 @@ function agregarAlCarrito(idProducto) {
     // Agregar el producto al carrito (logica de almacenamiento)
     const producto = productos.find(p => p.id === idProducto);
     const itemsCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Buscar si el producto ya está en el carrito
+    const productoEnCarrito = itemsCarrito.find(p => p.id === idProducto);
+
+    if (productoEnCarrito) {
+        // Aumentar la cantidad del producto existente
+        productoEnCarrito.cantidad++;
+    } else {
+        // Agregar el producto con cantidad 1
+        producto.cantidad = 1;
+    }
+
     itemsCarrito.push(producto);
     localStorage.setItem('carrito', JSON.stringify(itemsCarrito));
 }
