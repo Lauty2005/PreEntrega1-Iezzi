@@ -83,15 +83,15 @@ function renderizarCarrito() {
     elementosCarrito.forEach(item => {
         const li = document.createElement('li');
         li.innerHTML = `
-          <h3>${producto.nombre}</h3> 
+          <h3>${item.nombre}</h3> 
           <p id="cantidad"> x ${item.cantidad}</p>  
-          <p> $${producto.precio * item.cantidad}</p>`
+          <p> $${item.precio * item.cantidad}</p>`
         const btnEliminar = document.createElement('button');
         btnEliminar.textContent = 'eliminar';
         btnEliminar.addEventListener('click', () => eliminarDelCarrito(item.id))
         li.appendChild(btnEliminar);
         contenedorElementosCarrito.appendChild(li);
-        precioTotal += producto.precio * item.cantidad;
+        precioTotal += item.precio * item.cantidad;
     })
     totalSpan.textContent = precioTotal;
 }
