@@ -64,7 +64,21 @@ function renderizarProductos() {
         <p>${producto.precio}</p>
         <button class="btn-agregar-carrito" data-id="${producto.id}">Agregar al carrito</button>
       `;
-        div.addEventListener('click', () => agregarAlCarrito(producto.id));
+        div.addEventListener('click', () => {
+            agregarAlCarrito(producto.id);
+            Toastify({
+                text: "Producto agregado al carrito",
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                offset: {
+                    y: 70,
+                },
+                style: {
+                  background: "#032859",
+                },
+              }).showToast();
+        })
         contenedorProductos.appendChild(div);
     })
 }
