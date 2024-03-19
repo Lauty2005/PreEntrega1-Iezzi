@@ -60,9 +60,12 @@ function renderizarProductos() {
         const div = document.createElement('div');
         div.classList.add('producto');
         div.innerHTML = `
+        <div id="product">
+        <img src="./img/large_display_41922fd7-8eb4-4887-8171-77aa0a15b487.jpg" alt="Avatar">
         <h3>${producto.nombre}</h3>
         <p>${producto.precio}</p>
         <button class="btn-agregar-carrito" data-id="${producto.id}">Agregar al carrito</button>
+        </div>
       `;
         div.addEventListener('click', () => {
             agregarAlCarrito(producto.id);
@@ -75,9 +78,9 @@ function renderizarProductos() {
                     y: 70,
                 },
                 style: {
-                  background: "#032859",
+                    background: "#032859",
                 },
-              }).showToast();
+            }).showToast();
         })
         contenedorProductos.appendChild(div);
     })

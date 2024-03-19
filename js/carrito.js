@@ -8,6 +8,7 @@ function renderizarCarrito() {
     elementosCarrito.forEach(item => {
         const li = document.createElement('li');
         li.innerHTML = `
+          <img src="../img/large_display_41922fd7-8eb4-4887-8171-77aa0a15b487.jpg" alt="Avatar">
           <h3>${item.nombre}</h3> 
           <p id="cantidad"> x ${item.cantidad}</p>  
           <p> $${item.precio * item.cantidad}</p>`
