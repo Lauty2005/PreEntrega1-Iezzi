@@ -1,10 +1,22 @@
-/*const IMP = "Impresiones 3D.LY";
+const toggleButton = document.getElementById('button-menu')
+const navWrapper = document.getElementById('nav')
+
+toggleButton.addEventListener('click', () => {
+    toggleButton.classList.toggle('close')
+    navWrapper.classList.toggle('show')
+})
+
+navWrapper.addEventListener('click', e => {
+    if (e.target.id === 'nav') {
+        navWrapper.classList.remove('show')
+        toggleButton.classList.remove('close')
+    }
+})
 
 class Producto {
-    constructor(id, nombre, description, imagen, tiempo, gramos) {
+    constructor(id, nombre, imagen, tiempo, gramos) {
         this.id = id;
         this.nombre = nombre;
-        this.description = description;
         this.imagen = imagen;
         this.tiempo = tiempo;
         this.gramos = gramos;
@@ -12,21 +24,19 @@ class Producto {
 
 }
 
-const PRODUCTOS = [
-    new Producto("1", "Soporte celular", "Dos tamaños disponibles, Movil o Tablet", "url", 0.6, 5),
-    new Producto("2", "Posa vaso", "Diseño de Harry Potter", "url", 1.2, 10),
-    new Producto("3", "Cortante", "Diseño de números", "url", 1.8, 15)
+const productos = [
+    new Producto(1, "Alcancia", "./img/alcancia.jpg", 0.5, 6),
+    new Producto(2, "Cartas Caja UNO", "./img/cajauno.jpg", 0.7, 6),
+    new Producto(3, "Porta Cepillos Dentales", "./img/portacepillos.jpg", 0.5, 6),
+    new Producto(4, "Soporte Celular", "./img/soportecelular.jpg", 0.5, 6),
+    new Producto(5, "Logo Formula 1", "./img/formula1.jpg", 0.5, 6)
 ];
 
 const DATOS = { precioKG: 25000, precioKWh: 25, consumo: 150, desgaste: 4500, margen: 0.3, ganancia: 3 }
 
 function calcularPrecioProducto(productoId) {
-    const producto = PRODUCTOS.find(producto => producto.id === productoId);
+    const producto = productos.find(producto => producto.id === productoId);
     const datos = DATOS;
-
-    if (!producto) {
-        return "Producto no encontrado";    
-    }
 
     // Calcular el precio del material
     const precioMaterial = producto.gramos * datos.precioKG / 1000;
@@ -44,14 +54,7 @@ function calcularPrecioProducto(productoId) {
     const precioFinal = (precioMaterial + precioLuz + desgasteMaquina + margenError) * datos.ganancia;
 
     return precioFinal;
-}*/
-
-const productos = [
-    { id: 1, nombre: "azucar", precio: 200 },
-    { id: 2, nombre: "arroz", precio: 100 },
-    { id: 3, nombre: "dulce de leche", precio: 140 },
-    { id: 4, nombre: "cereales", precio: 40 },
-];
+}
 
 const contenedorProductos = document.getElementById('productos');
 
@@ -59,11 +62,15 @@ function renderizarProductos() {
     productos.forEach(producto => {
         const div = document.createElement('div');
         div.classList.add('producto');
+
+        const precioFinal = calcularPrecioProducto(producto.id);
+        const precioFinalRedondeado = Math.ceil(precioFinal / 10) * 10;
+
         div.innerHTML = `
         <div id="product">
-        <img src="./img/large_display_41922fd7-8eb4-4887-8171-77aa0a15b487.jpg" alt="Avatar">
+        <img src="${producto.imagen}" alt="${producto.nombre}">
         <h3>${producto.nombre}</h3>
-        <p>${producto.precio}</p>
+        <p>${precioFinalRedondeado}</p>
         <button class="btn-agregar-carrito" data-id="${producto.id}">Agregar al carrito</button>
         </div>
       `;
@@ -88,21 +95,22 @@ function renderizarProductos() {
 
 function agregarAlCarrito(idProducto) {
     // Agregar el producto al carrito (logica de almacenamiento)
-    const producto = productos.find(p => p.id === idProducto);
     const itemsCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     // Buscar si el producto ya está en el carrito
-    const productoEnCarrito = itemsCarrito.find(p => p.id === idProducto);
+    const productoEnCarrito = itemsCarrito.find(item => item.id === idProducto);
 
     if (productoEnCarrito) {
         // Aumentar la cantidad del producto existente
         productoEnCarrito.cantidad++;
     } else {
         // Agregar el producto con cantidad 1
-        producto.cantidad = 1;
-    }
+        const producto = productos.find(p => p.id === idProducto);
+        if (producto) {
+            itemsCarrito.push({ ...producto, cantidad: 1 });
 
-    itemsCarrito.push(producto);
+        }
+    }
     localStorage.setItem('carrito', JSON.stringify(itemsCarrito));
 }
 

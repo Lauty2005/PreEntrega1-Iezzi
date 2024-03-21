@@ -8,16 +8,19 @@ function renderizarCarrito() {
     elementosCarrito.forEach(item => {
         const li = document.createElement('li');
         li.innerHTML = `
-          <img src="../img/large_display_41922fd7-8eb4-4887-8171-77aa0a15b487.jpg" alt="Avatar">
+          <img src="${item.imagen}" alt="${item.nombre}">
           <h3>${item.nombre}</h3> 
           <p id="cantidad"> x ${item.cantidad}</p>  
-          <p> $${item.precio * item.cantidad}</p>`
+          <p> $${item.precioFinalRedondeado * item.cantidad}</p>`
         const btnEliminar = document.createElement('button');
         btnEliminar.textContent = 'eliminar';
-        btnEliminar.addEventListener('click', () => eliminarDelCarrito(item.id))
+        btnEliminar.addEventListener('click', () => {
+            eliminarDelCarrito(item.id);
+            window.location.href = window.location.href
+        });
         li.appendChild(btnEliminar);
         contenedorElementosCarrito.appendChild(li);
-        precioTotal += item.precio * item.cantidad;
+        precioTotal += item.precioFinalRedondeado * item.cantidad;
     })
     totalSpan.textContent = precioTotal;
 }
@@ -26,8 +29,19 @@ function eliminarDelCarrito(idProducto) {
     // Eliminar el producto del carrito (logica de almacenamiento)
     const indice = elementosCarrito.findIndex(item => item.id === idProducto);
     if (indice !== -1) {
-        elementosCarrito.splice(indice, 1);
-        localStorage.setItem('carrito', JSON.stringify(elementosCarrito));
+        const cantidadActual = elementosCarrito[indice].cantidad;
+        // Si la cantidad es mayor a 1
+        if (cantidadActual > 1) {
+            // Disminuir la cantidad en 1
+            elementosCarrito[indice].cantidad--;
+            // Actualizar el local storage
+            localStorage.setItem('carrito', JSON.stringify(elementosCarrito));
+            // Actualizar la visualización del carrito
+            renderizarCarrito();
+        } else {
+            elementosCarrito.splice(indice, 1);
+            localStorage.setItem('carrito', JSON.stringify(elementosCarrito));
+        }
     }
 }
 

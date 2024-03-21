@@ -14,104 +14,33 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-      <a href="#" class="logo">
-        <img src="./img/logo.png" alt="">
-      </a>
-      <ul>
-        <li><a href="#" class="link">Productos</a></li>
-        <li><a href="./pages/carrito.html" class="link"><button>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart"
-                viewBox="0 0 16 16">
-                <path
-                  d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-              </svg>
-            </button></a></li>
-      </ul>
-      <button class="menu-icon">
-        <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 6H20M4 12H20M13 18H20" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
-            stroke-width="2" />
-        </svg>
-      </button>
+  <header class="main-header">
+    <a class="main-logo" href="#">
+      <img src="./img/logo.png" alt="">
+    </a>
+    <nav id="nav" class="main-nav">
+      <div class="nav-links">
+        <a class="link-item" href="./pages/carrito.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart"
+          viewBox="0 0 16 16">
+          <path
+            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+        </svg></a>
+      </div>
     </nav>
+    <button id="button-menu" class="button-menu">
+      <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6H20M4 12H20M13 18H20" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+          stroke-width="2" />
+      </svg>
+    </button>
   </header>
   <main>
-    <h1>Carrito de compras</h1>
+    <h1>Productos</h1>
     <div class="conteiner">
       <div id="productos">
         <!--aca se van a mostrar los productos-->
       </div>
     </div>
-    <!--<section class="carrousel">
-      <div id="carouselExampleDark" class="carousel carousel-dark slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-            <img src="..." class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="..." class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </section>
-    <h1>Lo más buscado</h1>
-
-    <section class="preview">
-      <div class="card">
-        <img src="./img/logo.png" alt="Avatar">
-        <div class="container">
-          <h4><b>John Doe</b></h4>
-          <p>Architect & Engineer</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="" alt="Avatar">
-        <div class="container">
-          <h4><b>John Doe</b></h4>
-          <p>Architect & Engineer</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="" alt="Avatar">
-        <div class="container">
-          <h4><b>John Doe</b></h4>
-          <p>Architect & Engineer</p>
-        </div>
-      </div>
-    </section>-->
   </main>
   <footer>
     <div class="info">
@@ -128,8 +57,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="./js/index.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="./js/index.js"></script>
 </body>
 
 </html>
