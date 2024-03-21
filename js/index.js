@@ -13,17 +13,6 @@ navWrapper.addEventListener('click', e => {
     }
 })
 
-class Producto {
-    constructor(id, nombre, imagen, tiempo, gramos) {
-        this.id = id;
-        this.nombre = nombre;
-        this.imagen = imagen;
-        this.tiempo = tiempo;
-        this.gramos = gramos;
-    }
-
-}
-
 const productos = [
     new Producto(1, "Alcancia", "./img/alcancia.jpg", 0.5, 6),
     new Producto(2, "Cartas Caja UNO", "./img/cajauno.jpg", 0.7, 6),
@@ -32,9 +21,20 @@ const productos = [
     new Producto(5, "Logo Formula 1", "./img/formula1.jpg", 0.5, 6)
 ];
 
+class Producto {
+    constructor(id, nombre, imagen, tiempo, gramos) {
+        this.id = id;
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.tiempo = tiempo;
+        this.gramos = gramos;
+        this.precioFinalRedondeado = calcularPrecioFinalRedondeado(id);
+    }
+}
+
 const DATOS = { precioKG: 25000, precioKWh: 25, consumo: 150, desgaste: 4500, margen: 0.3, ganancia: 3 }
 
-function calcularPrecioProducto(productoId) {
+function calcularPrecioFinalRedondeado(productoId) {
     const producto = productos.find(producto => producto.id === productoId);
     const datos = DATOS;
 
@@ -53,7 +53,7 @@ function calcularPrecioProducto(productoId) {
     // Calcular el precio final del producto
     const precioFinal = (precioMaterial + precioLuz + desgasteMaquina + margenError) * datos.ganancia;
 
-    return precioFinal;
+    return Math.ceil(precioFinal / 10) * 10;
 }
 
 const contenedorProductos = document.getElementById('productos');
@@ -63,14 +63,11 @@ function renderizarProductos() {
         const div = document.createElement('div');
         div.classList.add('producto');
 
-        const precioFinal = calcularPrecioProducto(producto.id);
-        const precioFinalRedondeado = Math.ceil(precioFinal / 10) * 10;
-
         div.innerHTML = `
         <div id="product">
         <img src="${producto.imagen}" alt="${producto.nombre}">
         <h3>${producto.nombre}</h3>
-        <p>${precioFinalRedondeado}</p>
+        <p>${producto.precioFinalRedondeado}</p>
         <button class="btn-agregar-carrito" data-id="${producto.id}">Agregar al carrito</button>
         </div>
       `;
