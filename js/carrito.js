@@ -8,12 +8,12 @@ function renderizarCarrito() {
     elementosCarrito.forEach(item => {
         const li = document.createElement('li');
         li.innerHTML = `
-          <img src="${item.imagen}" alt="${item.nombre}">
+          <img src="../${item.imagen}" alt="${item.nombre}">
           <h3>${item.nombre}</h3> 
           <p id="cantidad"> x ${item.cantidad}</p>  
           <p> $${item.precioFinalRedondeado * item.cantidad}</p>`
         const btnEliminar = document.createElement('button');
-        btnEliminar.textContent = 'eliminar';
+        btnEliminar.textContent = 'Eliminar';
         btnEliminar.addEventListener('click', () => {
             eliminarDelCarrito(item.id);
             window.location.href = window.location.href
@@ -47,7 +47,7 @@ function eliminarDelCarrito(idProducto) {
 
 function realizarCompra() {
     // Completar la compra (logica de pago)
-    alert(`compra finalizada $${totalSpan.textContent}`);
+    alert(`Compra Finalizada $${totalSpan.textContent}`);
     // Mostrar mensaje de compra exitosa
     // Vaciar el carrito (logica de almacenamiento)
     elementosCarrito.length = 0;

@@ -1,33 +1,31 @@
-@media screen and (min-width: 768px) {
-    #productos {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+#productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-        .producto {
-            margin: 1rem 1rem 2rem 1rem;
-            width: 20rem;
-            
-            #product {
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    .producto {
+        margin: 1rem 1rem 2rem 1rem;
+        width: 20rem;
+
+        #product {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-family: arial;
+
+            .btn-agregar-carrito {
+                border: none;
+                outline: 0;
+                padding: 0.75rem;
+                color: white;
+                background-color: #000;
                 text-align: center;
-                font-family: arial;
-    
-                .btn-agregar-carrito {
-                    border: none;
-                    outline: 0;
-                    padding: 0.75rem;
-                    color: white;
-                    background-color: #000;
-                    text-align: center;
-                    cursor: pointer;
-                    width: -webkit-fill-available;
-                    font-size: 1rem;
-                }
+                cursor: pointer;
+                width: -webkit-fill-available;
+                font-size: 1rem;
+            }
 
-                img {
-                    width: 100%;
-                }
+            img {
+                width: 100%;
             }
         }
     }
@@ -47,7 +45,7 @@
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                 text-align: center;
                 font-family: arial;
-    
+
                 .btn-agregar-carrito {
                     border: none;
                     outline: 0;
@@ -68,6 +66,80 @@
     }
 }
 
+@media screen and (max-width: 600px) {
+    .carro {
+        width: 90%;
+        margin: 3rem;
+        padding: 1rem;
+        background-color: #F9F9F9;
+        border-radius: 0.5rem;
+        box-shadow: 0.5rem 0.5rem #efefef;
+
+        h2 {
+            text-decoration: underline;
+        }
+
+        p {
+            margin: 0;
+            padding: 1rem;
+            font-weight: 700;
+        }
+
+        #btn-comprar {
+            align-items: center;
+            background: #FFFFFF;
+            border: 0 solid #E2E8F0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            box-sizing: border-box;
+            display: inline-flex;
+            font-size: 1rem;
+            font-weight: 700;
+            height: 1rem;
+            padding: 1.3rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #elementos-carrito {
+            list-style-type: none;
+
+            li {
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 1rem;
+                border-radius: 0.5rem;
+                background-color: #ABABAB;
+                box-shadow: 0.5rem 0.5rem #6B6B6B;
+                margin: 1rem;
+
+                h3 {
+                    font-weight: 700;
+                    text-decoration: underline;
+                    padding: 1rem;
+                }
+
+                button {
+                    align-items: center;
+                    background: #FFFFFF;
+                    border: 0 solid #E2E8F0;
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                    box-sizing: border-box;
+                    display: inline-flex;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    height: 1rem;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    cursor: pointer;
+                }
+
+                img {
+                    width: 25%;
+                }
+            }
+        }
+    }
+}
 
 .carro {
     width: 90%;
@@ -137,7 +209,7 @@
             }
 
             img {
-                width: 50%;
+                width: 25%;
             }
         }
     }
